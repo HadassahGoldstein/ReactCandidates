@@ -33,21 +33,21 @@ namespace ReactCandidates.Web.Controllers
         public List<Candidate> GetPendingPpl()
         {
             var repo = new CandidatesRepository(_connectionString);
-            return repo.GetPending();
+            return repo.GetCandidates(Status.Pending);
         }
         [HttpGet]
         [Route("getConfirmedPpl")]
         public List<Candidate> GetConfirmedPpl()
         {
             var repo = new CandidatesRepository(_connectionString);
-            return repo.GetConfirmed();
+            return repo.GetCandidates(Status.Confirmed);
         }
         [HttpGet]
         [Route("getRefusedPpl")]
         public List<Candidate> GetRefusedPpl()
         {
             var repo = new CandidatesRepository(_connectionString);
-            return repo.GetRefused();
+            return repo.GetCandidates(Status.Refused);
         }
         [HttpGet]
         [Route("getCandidate")]

@@ -18,21 +18,12 @@ namespace ReactCandidates.Data
             context.Candidates.Add(c);
             context.SaveChanges();
         }
-        public List<Candidate> GetPending()
+        public List<Candidate> GetCandidates(Status status)
         {
             using var context = new CandidatesDbContext(_connectionString);
-            return context.Candidates.Where(c => c.Status == Status.Pending).ToList();
+            return context.Candidates.Where(c => c.Status == status).ToList();
         }
-        public List<Candidate> GetConfirmed()
-        {
-            using var context = new CandidatesDbContext(_connectionString);
-            return context.Candidates.Where(c => c.Status == Status.Confirmed).ToList();
-        }
-        public List<Candidate> GetRefused()
-        {
-            using var context = new CandidatesDbContext(_connectionString);
-            return context.Candidates.Where(c => c.Status == Status.Refused).ToList();
-        }
+      
         public Candidate GetPendingCandidate(int id)
         {
             using var context = new CandidatesDbContext(_connectionString);
