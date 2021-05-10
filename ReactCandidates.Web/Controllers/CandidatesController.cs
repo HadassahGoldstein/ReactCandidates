@@ -46,7 +46,7 @@ namespace ReactCandidates.Web.Controllers
         [Route("getRefusedPpl")]
         public List<Candidate> GetRefusedPpl()
         {
-            var repo = new CandidatesRepository(_connectionString);
+            var repo = new CandidatesRepository(_connectionString);            
             return repo.GetCandidates(Status.Refused);
         }
         [HttpGet]
